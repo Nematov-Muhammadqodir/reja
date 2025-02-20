@@ -5,21 +5,23 @@ const app = express();
 const http = require("http");
 
 // 1 Kirish kodlari
-app.use(express.static("public")); //HTML,CSS and all other public files(images) will be accessible for public
-app.use(express.json()); // When we send Post or Put requests Express has to parse json into object, because Express does not understand json format
-app.use(express.urlencoded({ extended: true })); // When we request via traditional forms we have to use urlencoded, whithout it our data will become undefined
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // 2 Sessionga bogliq kodlar
 
 // 3 Viewsga doir codlar
-app.set("views", "views"); //Tells Express where to find the template files (views)===>"views" is the folder that contains EJS template files (e.g., index.ejs).
-app.set("view engine", "ejs"); //Tells Express to use EJS as the template engine.
-
+app.set("views", "views");
+app.set("view engine", "ejs");
 //4 Routing code
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Hello from server side..." });
+app.post("/create-item", function (req, res) {
+  console.log(req.body);
+  res.json({ test: "Test success" });
 });
-
+app.get("/", function (req, res) {
+  res.render("harid");
+});
 const server = http.createServer(app);
 let PORT = 3000;
 server.listen(PORT, function () {
