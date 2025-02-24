@@ -4,7 +4,7 @@ const http = require("http");
 const fs = require("fs");
 
 let user;
-fs.readFile("database/user.json", "utf8", (err, data) => {
+fs.readFile("database/user.json", "utf8", function (err, data) {
   if (err) {
     console.log("ERROR", err);
   } else {
@@ -28,7 +28,7 @@ app.post("/create-item", function (req, res) {
   res.json({ test: "Test success" });
 });
 
-app.get("/author", (req, res) => {
+app.get("/author", function (req, res) {
   res.render("author", { user: user });
 });
 
