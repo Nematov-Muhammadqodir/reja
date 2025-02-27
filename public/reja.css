@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  font-family: sans-serif;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: rgb(220, 209, 209);
+  color: brown;
+  font-family: 1.5rem;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  font-size: 1rem;
+  color: rgb(234, 146, 14);
+  border-radius: 5px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.rejalar_container {
+  display: flex;
+  flex-direction: column;
+  border: 2px dashed black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.rejalar_list {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  width: 500px;
+  border-bottom: 1px solid black;
+  padding: 10px;
+  background-color: rgb(139, 128, 101);
+}
+
+.crud_btn_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+li span {
+  display: flex;
+  align-items: center;
+  color: whitesmoke;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+}

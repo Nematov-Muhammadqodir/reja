@@ -4,46 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>REJA</title>
-    <link rel="stylesheet" href="../public/main.css" />
-    <style>
-      .container {
-        display: flex;
-        font-family: sans-serif;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .input {
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        background-color: rgb(220, 209, 209);
-        color: brown;
-        font-family: 1.5rem;
-      }
-
-      .btn {
-        padding: 10px 15px;
-        border: none;
-        font-size: 1rem;
-        color: rgb(234, 146, 14);
-        border-radius: 5px;
-      }
-
-      .btn:hover {
-        cursor: pointer;
-      }
-    </style>
+    <link rel="stylesheet" href="/reja.css" />
+    <style></style>
   </head>
   <body style="background-color: rgb(197, 166, 120)">
     <div class="container">
       <h1 class="header" style="font-weight: 500">REJA VA MAQSADLAR</h1>
       <form id="create-form" class="form" action="/create-item" method="POST">
         <div>
-          <input autofocus class="input" type="text" name="item" />
+          <input autofocus class="input" type="text" name="reja" />
           <button class="btn">Yangi Reja Qo'shish</button>
         </div>
       </form>
+
+      <ul class="rejalar_container">
+        <% items.map(item=>{ %>
+        <li class="rejalar_list">
+          <span><%= item.reja %></span>
+          <div class="crud_btn_container">
+            <button data_id="<%= item._id%>" class="btn">O'zgartirish</button>
+            <button data_id="<%= item._id%>" class="btn">O'chirish</button>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
       <button
         style="margin-top: 20px; color: rgb(255, 94, 0); font-weight: 600"
         class="btn"
