@@ -22,8 +22,12 @@
         <li class="rejalar_list">
           <span><%= item.reja %></span>
           <div class="crud_btn_container">
-            <button data_id="<%= item._id%>" class="btn">O'zgartirish</button>
-            <button data_id="<%= item._id%>" class="btn">O'chirish</button>
+            <button data_id="<%= item._id%>" class="btn edit-me">
+              O'zgartirish
+            </button>
+            <button data_id="<%= item._id%>" class="btn delete-me">
+              O'chirish
+            </button>
           </div>
         </li>
         <% }) %>

@@ -23,7 +23,7 @@ createForm.addEventListener("submit", function (e) {
   axios
     .post("/create-item", { reja: reja_input.value })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       listContainer.insertAdjacentHTML(
         "beforeend",
         itemTemplate(response.data)
@@ -35,4 +35,20 @@ createForm.addEventListener("submit", function (e) {
       console.log("Please try again");
     });
 });
-console.log("Hello");
+
+document.addEventListener("click", function (e) {
+  console.log(e);
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("Would you like to delete")) {
+      axios
+        .post("/delete-item", { id: e.target.getAttribute("data_id") })
+        .then((response) => {
+          console.log(response.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+          console.log("Please try again");
+        });
+    }
+  }
+});

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const mongodb = require("mongodb");
 
 //MongoDB call
 const db = require("./server").db();
@@ -50,6 +51,21 @@ app.get("/", function (req, res) {
         res.render("reja", { items: data });
       }
     });
+});
+
+app.post("/delete-item", function (req, res) {
+  const id = req.body.id;
+  console.log(id);
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    (err, data) => {
+      if (err) {
+        console.log("Fail to delete an element");
+      } else {
+        res.json({ state: data });
+      }
+    }
+  );
 });
 
 module.exports = app;
