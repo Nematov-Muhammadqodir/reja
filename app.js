@@ -26,6 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("views", "views");
 app.set("view engine", "ejs");
 //4 Routing code
+
 app.post("/create-item", function (req, res) {
   console.log("user entered /create-item ");
 
@@ -66,6 +67,28 @@ app.post("/delete-item", function (req, res) {
       }
     }
   );
+});
+
+app.post("/edit-item", function (req, res) {
+  const id = req.body.id;
+  db.collection("plans").findOneAndUpdate(
+    { _id: new mongodb.ObjectId(id) },
+    { $set: { reja: req.body.item } },
+    { returnOriginal: false },
+    function (err, updatedDocument) {
+      console.log(updatedDocument.value);
+      res.json(updatedDocument.value);
+    }
+  );
+});
+
+app.post("/delete-all", function (req, res) {
+  if (req.body.delete_all) {
+    db.collection("plans").deleteMany(function (err, data) {
+      res.json({ state: "all plans successfully deleted!!!!" });
+      console.log(data);
+    });
+  }
 });
 
 module.exports = app;

@@ -2,6 +2,7 @@
 const listContainer = document.querySelector(".rejalar_container");
 const createForm = document.querySelector("#create-form");
 const reja_input = document.querySelector(".reja_input");
+const deleteAllBtn = document.querySelector(".delete-all");
 
 //DRY
 function itemTemplate(item) {
@@ -51,4 +52,29 @@ document.addEventListener("click", function (e) {
         });
     }
   }
+
+  if (e.target.classList.contains("edit-me")) {
+    const contentElement =
+      e.target.parentElement.parentElement.querySelector(".item__reja");
+    console.log(contentElement);
+    const content = contentElement.innerHTML;
+    const userInput = prompt("You can edit via this prompt!", content);
+    axios
+      .post("/edit-item", {
+        item: userInput,
+        id: e.target.getAttribute("data_id"),
+      })
+      .then((response) => {
+        console.log(response.data);
+        contentElement.innerHTML = response.data.reja;
+      })
+      .catch((err) => console.log(err));
+  }
+});
+
+deleteAllBtn.addEventListener("click", function () {
+  axios.post("/delete-all", { delete_all: true }).then((response) => {
+    document.location.reload();
+    alert(response.data.state);
+  });
 });

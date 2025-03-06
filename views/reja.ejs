@@ -20,7 +20,7 @@
       <ul class="rejalar_container">
         <% items.map(item=>{ %>
         <li class="rejalar_list">
-          <span><%= item.reja %></span>
+          <span class="item__reja"><%= item.reja %></span>
           <div class="crud_btn_container">
             <button data_id="<%= item._id%>" class="btn edit-me">
               O'zgartirish
@@ -34,7 +34,7 @@
       </ul>
       <button
         style="margin-top: 20px; color: rgb(255, 94, 0); font-weight: 600"
-        class="btn"
+        class="btn delete-all"
       >
         Hamma Rejalarni O'chirish
       </button>
