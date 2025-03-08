@@ -1,11 +1,19 @@
-//MITASK D
-function returnTrue(first, second) {
-  const firstTring = [...first].sort().join("");
-  const secondString = [...second].sort().join("");
-  console.log(firstTring === secondString);
+//MITASK-E
+function makeReverese(string) {
+  const arr = [...string].reverse().join("");
+  console.log(arr);
 }
 
-returnTrue("hello", "lohel");
+makeReverese("hello");
+
+//MITASK D
+// function returnTrue(first, second) {
+//   const firstTring = [...first].sort().join("");
+//   const secondString = [...second].sort().join("");
+//   console.log(firstTring === secondString);
+// }
+
+// returnTrue("hello", "lohel");
 
 // MITASK-C
 
