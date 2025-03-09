@@ -10,7 +10,6 @@ function findDoublers(word) {
   return hasDuplicate;
 }
 
-// Example usage:
 console.log(findDoublers("ferferro")); // true (because 'l' repeats)
 console.log(findDoublers("kevin"));
 
