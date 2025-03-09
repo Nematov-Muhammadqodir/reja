@@ -1,10 +1,26 @@
-//MITASK-E
-function makeReverese(string) {
-  const arr = [...string].reverse().join("");
-  console.log(arr);
+//MITASK-F
+function findDoublers(word) {
+  const hasDuplicate = word.split("").reduce((acc, char, index, arr) => {
+    if (arr.indexOf(char) !== index) {
+      acc = true;
+    }
+    return acc;
+  }, false);
+
+  return hasDuplicate;
 }
 
-makeReverese("hello");
+// Example usage:
+console.log(findDoublers("ferferro")); // true (because 'l' repeats)
+console.log(findDoublers("kevin"));
+
+//MITASK-E
+// function makeReverese(string) {
+//   const arr = [...string].reverse().join("");
+//   console.log(arr);
+// }
+
+// makeReverese("hello");
 
 //MITASK D
 // function returnTrue(first, second) {
